@@ -1,41 +1,40 @@
-// 드롭메뉴
-function hasScrolled() {
-    var st = $(this).scrollTop();
-
-    // Make sure they scroll more than delta
-    if (Math.abs(lastScrollTop - st) <= delta)
-        return;
-
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
-
-    //console.log(st-lastScrollTop);
-
-
-    if (st > lastScrollTop && st > navbarHeight) {
-        // Scroll Down
-        if ($('#dropHead').hasClass('active')) {
-
-        } else {
-            $('#dropHead').removeClass('nav-up').addClass('nav-down');
-        }
-
-    } else {
-        // Scroll Up
-        if (st + $(window).height() < $(document).height()) {
-            $('#dropHead').removeClass('nav-down').addClass('nav-up');
+// 풀페이지 메뉴
+$(document).ready(function(){
+        $('.btn_nav>a').on('click', function(){
+            $('.fullScreenMenu').fadeIn();
+        });
+        $('.close_btn').on('click', function(){
+            $('.fullScreenMenu').hide(); 
+        });
+     
+    });
+    
+// 페이드인업
+var animation2 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".aniBox");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function () {
+        for (var i = 0; i < items.length; i++) {
+            var posFromTop = items[i].getBoundingClientRect().top;
+            if (winH > posFromTop) {
+                items[i].classList.add("aniBox_active");
+            }
         }
     }
-
-    lastScrollTop = st;
+    return {
+        init2: initModule
+    }
 }
-
-
-
-
-
-
-
+animation2().init2();
 
 // 사진 날라오기
 var isVisible = false;
@@ -45,13 +44,13 @@ $(window).on('scroll', function () {
         $(document).ready(function () {
             $(".type_cv1, .type_cv4").animate({
                 width: '0',
-            }, 300);
+            }, 150);
         });
 
         $(document).ready(function () {
             $(".type_cv2, .type_cv3").animate({
                 height: '0',
-            }, 300);
+            }, 150);
         });
         isVisible = true;
     }
@@ -69,10 +68,263 @@ function checkVisible(elm, eval) {
 }
 
 
+// 화살표 돌아가는거
+var animation3 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".img_box");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    items[i].classList.add("rotate_active")
+                }, 200 * i)
+            }
+        }
+    }
+
+    return {
+        init3: initModule
+    }
+}
+animation3().init3();
+
+// 밑줄 생기는거
+var animation4 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".underLine");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                $(document).ready(function () {
+                    items[i].classList.add("gogo")
+                });
+            }
+        }
+    }
+
+    return {
+        init4: initModule
+    }
+}
+animation4().init4();
+
+
+// 헤더사진 줌아웃 
+var animation5 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".header_img");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("gogo1")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init5: initModule
+    }
+}
+animation5().init5();
+
+//헤더 텍스트 
+var animation6 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".header_img_txt");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("gogo2")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init6: initModule
+    }
+}
+animation6().init6();
+
+// 이미지1
+var animation7 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".main_img");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("bottop")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init7: initModule
+    }
+}
+animation7().init7();
+
+// 사람이미지(소개페이지)
+var animation6 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".header_img");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("gogo1")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init6: initModule
+    }
+}
+animation6().init6();
+
+
+var animation7 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".main_img");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("gogo3")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init7: initModule
+    }
+}
+animation7().init7();
+
+// 텍스트 이미지
+var animation8 = function () {
+    var items, winH;
+    var initModule = function () {
+        items = document.querySelectorAll(".main_img2");
+        winH = window.innerHeight;
+        _addEventHandlers();
+    }
+    var _addEventHandlers = function () {
+        window.addEventListener("scroll", _checkPosition);
+        window.addEventListener("load", _checkPosition);
+        window.addEventListener("resize", initModule);
+    };
+    var _checkPosition = function rotate() {
+        for (let i = 0; i < items.length; i++) {
+            var cultureTop = items[i].getBoundingClientRect().top;
+            if (winH > cultureTop) {
+                setTimeout(function () {
+                    $(document).ready(function () {
+                        items[i].classList.add("gogo4")
+                    });
+                })
+            }
+        }
+    }
+
+    return {
+        init8: initModule
+    }
+}
+animation8().init8();
 
 
 
-// 마우스오버시 페이지 바뀌기
+
+// 마우스오버시 페이지 바뀌기(메인)
 $(document).ready(function () {
     $(".cen_img").addClass("ma_img");
     $(".mp").addClass('cen_active');
@@ -115,7 +367,6 @@ $(document).ready(function () {
 
 
 //스와이퍼 슬라이드 
-
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
     loop: true,
@@ -125,3 +376,4 @@ var swiper = new Swiper(".mySwiper", {
         clickable: true,
     },
 });
+
