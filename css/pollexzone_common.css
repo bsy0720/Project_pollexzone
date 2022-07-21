@@ -459,7 +459,14 @@ footer {
         display: none;
     }
 
+    .header_top>ul {
+        padding: 10px 15px 0 15px;
+    }
 
+    .header_top img {
+        width: 95px;
+        height: 26px;
+    }
 
 }
 
@@ -480,6 +487,7 @@ footer {
         left: 15px;
         height: 26px;
     }
+
 
     .gray_box {
         display: block;
