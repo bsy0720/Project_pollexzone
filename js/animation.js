@@ -1,14 +1,14 @@
 // 풀페이지 메뉴
-$(document).ready(function(){
-        $('.btn_nav>a').on('click', function(){
-            $('.fullScreenMenu').fadeIn();
-        });
-        $('.close_btn').on('click', function(){
-            $('.fullScreenMenu').hide(); 
-        });
-     
+$(document).ready(function () {
+    $('.btn_nav>a').on('click', function () {
+        $('.fullScreenMenu').fadeIn();
     });
-    
+    $('.close_btn').on('click', function () {
+        $('.fullScreenMenu').hide();
+    });
+
+});
+
 // 페이드인업
 var animation2 = function () {
     var items, winH;
@@ -376,4 +376,3 @@ var swiper = new Swiper(".mySwiper", {
         clickable: true,
     },
 });
-
